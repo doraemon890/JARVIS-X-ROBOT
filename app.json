@@ -36,12 +36,12 @@
       "EVENT_LOGS": {
          "description": "Channel for event logs to note down important bot-level events. Recommend making this public. Example: '-123456'",
          "required": true,
-         "value": "-1002044893623"
+         "value": "-1002090078422"
       },
       "MESSAGE_DUMP": {
          "description": "Support chat ID.",
          "required": true,
-         "value": "-1002032763255"
+         "value": "-1002102765715"
       },
       "MONGO_DB_URI": {
          "description": "Required for MongoDB database connections.",
@@ -90,12 +90,12 @@
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username. Users will reach out for assistance. Example: MyGroupChatUsernameBlah. Avoid pointing to Miko Support to prevent conflicts.",
          "required": true,
-         "value": "loggerV1"
+         "value": "Chatting_2024"
       },
       "SUPPORT_ID": {
          "description": "Support chat ID.",
          "required": true,
-         "value": "-1002044893623"
+         "value": "-1002090078422"
       },
       "DB_NAME": {
          "description": "Your MongoDB name.",
