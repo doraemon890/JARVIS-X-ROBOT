@@ -514,7 +514,7 @@ __help__ = f"""
 
 ➠ Anti-Spam, used by bot devs to ban spammers across all groups. This helps protect \
 you and your groups by removing spam flooders as quickly as possible.
-➠ *Note:* Users can appeal gbans or report spammers at @hydraX2support
+➠ *Note:* Users can appeal gbans or report spammers at @Chatting_2024
 """
 
 # <================================================ HANDLER =======================================================>
