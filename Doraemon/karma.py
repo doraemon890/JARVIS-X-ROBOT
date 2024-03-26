@@ -7,6 +7,9 @@ from telegram import InlineKeyboardButton
 from JARVISROBO import BOT_USERNAME, OWNER_ID, SUPPORT_CHAT, BOT_NAME
 
 # <============================================== CONSTANTS =========================================================>
+STATS_IMG = [
+    "https://telegra.ph/file/61296490da95c55a1d5ee.jpg",
+]
 START_IMG = [
     "https://telegra.ph/file/cca68f5b49279dbee536b.jpg",
     "https://telegra.ph/file/7cf58d5a9fddd72a75867.jpg",
