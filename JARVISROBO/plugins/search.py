@@ -1,4 +1,3 @@
-
 # <============================================== IMPORTS =========================================================>
 import json
 import random
@@ -119,6 +118,8 @@ async def bingimg_search(client: Client, message: Message):
     await message.delete()
 
 
+# <=======================================================================================================>
+
 # Command handler for the '/googleimg' command
 @app.on_message(filters.command("googleimg"))
 async def googleimg_search(client: Client, message: Message):
@@ -131,19 +132,16 @@ async def googleimg_search(client: Client, message: Message):
             "Provide me a query to search!"
         )  # Return error if no query is provided
 
-    search_message = await message.reply_text("💭")  # Display searching message
+    search_message = await message.reply_text("🔍")  # Display searching message
 
-    # Send request to Google image search API using state function
-    googleimg_url = "https://sugoi-api.vercel.app/googleimg?keyword=" + text
-    resp = await state.get(googleimg_url)
+    # Send request to Pinterest image search API using state function
+    pinterest_url = "https://pinterest-api-one.vercel.app/?q=" + text
+    resp = await state.get(pinterest_url)
     images = json.loads(resp.text)  # Parse the response JSON into a list of image URLs
 
     media = []
     count = 0
-    for img in images:
-        if count == 7:
-            break
-
+    for img in images["images"][:7]:  # Limiting to 7 images
         # Create InputMediaPhoto object for each image URL
         media.append(InputMediaPhoto(media=img))
         count += 1
@@ -154,12 +152,7 @@ async def googleimg_search(client: Client, message: Message):
     # Delete the searching message and the original command message
     await search_message.delete()
     await message.delete()
-
-
-# <=======================================================================================================>
-
-
-# <=================================================== HELP ====================================================>
+    # <=================================================== HELP ====================================================>
 __mod_name__ = "sᴇᴀʀᴄʜ"
 
 __help__ = """
