@@ -11,7 +11,7 @@ from telegram.ext import CommandHandler, ContextTypes
 from telegram.helpers import mention_html
 
 from Database.sql.approve_sql import is_approved
-from Doraemon.karma import START_IMG
+from Doraemon.karma import STATS_IMG
 from JARVISROBO import DEV_USERS, DRAGONS, INFOPIC, OWNER_ID, function
 from JARVISROBO.__main__ import STATS, USER_INFO
 from JARVISROBO.plugins.helper_funcs.chat_status import support_plus
@@ -195,7 +195,7 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
 
     await update.effective_message.reply_photo(
-        photo=str(choice(START_IMG)), caption=result, parse_mode=ParseMode.HTML
+        photo=str(choice(STATS_IMG)), caption=result, parse_mode=ParseMode.HTML
     )
 
 
