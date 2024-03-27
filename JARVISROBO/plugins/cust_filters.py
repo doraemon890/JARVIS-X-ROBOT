@@ -717,7 +717,7 @@ doin?
 ➠ Now Supports media spoilers too, and media caption.
 """
 
-__mod_name__ = "ғɪʟᴛᴇʀs"
+__mod_name__ = "Fɪʟᴛᴇʀs"
 
 # <================================================ HANDLER =======================================================>
 FILTER_HANDLER = CommandHandler("filter", filters, block=False)
