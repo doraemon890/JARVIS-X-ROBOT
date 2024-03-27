@@ -421,7 +421,7 @@ __help__ = """
 » /setfloodmode <action type>: Choose which action to take on a user who has been flooding. Options: ban/kick/mute/tban/tmute.
 """
 
-__mod_name__ = "ᴀɴᴛɪ-ғʟᴏᴏᴅ"
+__mod_name__ = "Aɴᴛɪ-ғʟᴏᴏᴅ"
 
 # <================================================ HANDLER =======================================================>
 FLOOD_BAN_HANDLER = MessageHandler(
