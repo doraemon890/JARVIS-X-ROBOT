@@ -2,7 +2,7 @@ from Database.mongodb.db import *
 
 dwelcomedb = dbname.dwelcome
 nsfwdb = dbname.nsfw
-nekomodedb = dbname.nekomode
+anniemodedb = dbname.anniemode
 
 
 async def is_dwelcome_on(chat_id: int) -> bool:
@@ -37,14 +37,14 @@ async def nsfw_off(chat_id: int):
     return await nsfwdb.delete_one({"chat_id": chat_id})
 
 
-async def is_nekomode_on(chat_id: int) -> bool:
-    chat = await nekomodedb.find_one({"chat_id_toggle": chat_id})
+async def is_anniemode_on(chat_id: int) -> bool:
+    chat = await anniemodedb.find_one({"chat_id_toggle": chat_id})
     return not bool(chat)
 
 
-async def nekomode_on(chat_id: int):
-    await nekomodedb.delete_one({"chat_id_toggle": chat_id})
+async def anniemode_on(chat_id: int):
+    await anniemodedb.delete_one({"chat_id_toggle": chat_id})
 
 
-async def nekomode_off(chat_id: int):
-    await nekomodedb.insert_one({"chat_id_toggle": chat_id})
+async def anniemode_off(chat_id: int):
+    await anniemodedb.insert_one({"chat_id_toggle": chat_id})
