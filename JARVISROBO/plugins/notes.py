@@ -609,7 +609,7 @@ be useful when updating a current note
 
 """
 
-__mod_name__ = "ɴᴏᴛᴇs"
+__mod_name__ = "Nᴏᴛᴇs"
 
 # <================================================ HANDLER =======================================================>
 function(CommandHandler("get", cmd_get))
