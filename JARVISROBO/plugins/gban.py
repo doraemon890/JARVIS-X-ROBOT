@@ -535,7 +535,7 @@ function(UNGBAN_HANDLER)
 function(GBAN_LIST)
 function(GBAN_STATUS)
 
-__mod_name__ = "ᴀɴᴛɪ-sᴘᴀᴍ"
+__mod_name__ = "Aɴᴛɪ-sᴘᴀᴍ"
 __handlers__ = [GBAN_HANDLER, UNGBAN_HANDLER, GBAN_LIST, GBAN_STATUS]
 
 if STRICT_GBAN:  # enforce GBANS if this is set
