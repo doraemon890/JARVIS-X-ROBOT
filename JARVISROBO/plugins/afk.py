@@ -204,7 +204,7 @@ function(AFK_REGEX_HANDLER, AFK_GROUP)
 function(NO_AFK_HANDLER, AFK_GROUP)
 function(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
 
-__mod_name__ = "ᴀғᴋ"
+__mod_name__ = "Aғᴋ"
 __command_list__ = ["afk"]
 __handlers__ = [
     (AFK_HANDLER, AFK_GROUP),
