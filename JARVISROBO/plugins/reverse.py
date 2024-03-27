@@ -113,5 +113,5 @@ Reply to an image with one of the above commands to perform a reverse image sear
 - Maximum file size: 5 MB.
 """
 
-__mod_name__ = "ʀᴇᴠᴇʀsᴇ"
+__mod_name__ = "Rᴇᴠᴇʀsᴇ"
 # <================================================ END =======================================================>
