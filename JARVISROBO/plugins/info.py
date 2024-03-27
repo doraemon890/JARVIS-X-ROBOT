@@ -215,7 +215,7 @@ INFO_HANDLER = CommandHandler(("info", "book"), info, block=False)
 function(STATS_HANDLER)
 function(INFO_HANDLER)
 
-__mod_name__ = "ɪɴғᴏ"
+__mod_name__ = "Iɴғᴏ"
 __command_list__ = ["info"]
 __handlers__ = [INFO_HANDLER, STATS_HANDLER]
 # <================================================ END =======================================================>
