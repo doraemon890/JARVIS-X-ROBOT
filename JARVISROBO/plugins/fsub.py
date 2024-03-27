@@ -185,5 +185,5 @@ __help__ = """
 
 ➠ *If you disable fsub, you'll need to set it up again for it to take effect. Utilize /fsub channel\_username.*
 """
-__mod_name__ = "ғᴇᴅ-sᴜʙ"
+__mod_name__ = "Fᴇᴅ-sᴜʙ"
 # <================================================ END =======================================================>
