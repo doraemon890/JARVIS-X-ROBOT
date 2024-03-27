@@ -153,7 +153,7 @@ async def googleimg_search(client: Client, message: Message):
     await search_message.delete()
     await message.delete()
     # <=================================================== HELP ====================================================>
-__mod_name__ = "sᴇᴀʀᴄʜ"
+__mod_name__ = "Sᴇᴀʀᴄʜ"
 
 __help__ = """
 💭 𝗦𝗘𝗔𝗥𝗖𝗛
