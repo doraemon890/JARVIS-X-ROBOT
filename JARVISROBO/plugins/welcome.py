@@ -67,6 +67,7 @@ VERIFIED_USER_WAITLIST = {}
 
 
 # <================================================ TEMPLATE WELCOME FUNCTION =======================================================>
+# Functions
 async def circle(pfp, size=(500, 500)):
     pfp = pfp.resize(size, Image.LANCZOS).convert("RGBA")
     bigsize = (pfp.size[0] * 3, pfp.size[1] * 3)
@@ -79,7 +80,7 @@ async def circle(pfp, size=(500, 500)):
     return pfp
 
 
-async def welcomepic(pic, user, chat, user_id):
+async def welcomepic(pic, user, chat, user_id, user_username):
     background = Image.open("Extra/AnniNewel.png")
     pfp = Image.open(pic).convert("RGBA")
     pfp = circle(pfp)
@@ -88,8 +89,8 @@ async def welcomepic(pic, user, chat, user_id):
     font_large = ImageFont.truetype('Extra/ArialReg.ttf', size=65)
     font_small = ImageFont.truetype('Extra/ArialReg.ttf', size=60)
     draw.text((421, 715), f'{user}', fill=(242, 242, 242), font=font_large)
-    draw.text((270, 1005), f'{id}', fill=(242, 242, 242), font=font_large)
-    draw.text((570, 1308), f"{uname}", fill=(242, 242, 242), font=font_large)
+    draw.text((270, 1005), f'{user_id}', fill=(242, 242, 242), font=font_large)
+    draw.text((570, 1308), f"{user_username}", fill=(242, 242, 242), font=font_large)
     pfp_position = (1895, 399)
     background.paste(pfp, pfp_position, pfp)
     welcome_image_path = f"downloads/welcome_{user_id}.png"
@@ -121,11 +122,13 @@ async def member_has_joined(client, member: ChatMemberUpdated):
                 await temp.MELCOW[f"welcome-{chat_id}"].delete()
             except:
                 pass
-                user = member.new_chat_member.user if member.new_chat_member else member.from_user
-    
-    # Add the modified condition here
-    if member.new_chat_member and not member.old_chat_member and member.new_chat_member.status != "kicked":
-    
+        mention = f"<a href='tg://user?id={user.id}'>{user.first_name}</a>"
+        joined_date = datetime.fromtimestamp(time.time()).strftime("%Y.%m. %d %H:%M:%S")
+        first_name = (
+            f"{user.first_name} {user.last_name}" if user.last_name else user.first_name
+        )
+        user_id = user.id
+        dc = user.dc_id
         try:
             pic = await client.download_media(
                 user.photo.big_file_id, file_name=f"pp{user_id}.png"
@@ -134,21 +137,17 @@ async def member_has_joined(client, member: ChatMemberUpdated):
             pic = "Extra/upic.png"
         if (temp.MELCOW).get(f"welcome-{member.chat.id}") is not None:
             try:
-                await temp.MELCOW[f"welcome-{member.chat.id}"].delete()
-            except Exception as e:
-                LOGGER.error(e)
-        try:
-            welcomeimg = await welcomepic(
-                pic, user.first_name, member.chat.title, user_id, user_username
-            )
-            button_text = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
-            add_button_text = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
-            deep_link = f"tg://openmessage?user_id={user.id}"
-            add_link = f"https://t.me/{app.username}?startgroup=true"
-            temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
-                member.chat.id,
-                photo=welcomeimg,
-                caption=f"""
+                welcomeimg = await welcomepic(
+                    pic, user.first_name, member.chat.title, user_id, user.username
+                )
+                button_text = "๏ ᴠɪᴇᴡ ɴᴇᴡ ᴍᴇᴍʙᴇʀ ๏"
+                add_button_text = "๏ ᴋɪᴅɴᴀᴘ ᴍᴇ ๏"
+                deep_link = f"tg://openmessage?user_id={user.id}"
+                add_link = f"https://t.me/{app.username}?startgroup=true"
+                temp.MELCOW[f"welcome-{member.chat.id}"] = await app.send_photo(
+                    member.chat.id,
+                    photo=welcomeimg,
+                    caption=f"""
 **❅────✦ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ✦────❅
 {member.chat.title}
 ▰▰▰▰▰▰▰▰▰▰▰▰▰
@@ -159,20 +158,21 @@ async def member_has_joined(client, member: ChatMemberUpdated):
 ▰▰▰▰▰▰▰▰▰▰▰▰▰**
 **❅─────✧❅✦❅✧─────❅**
 """,
-             reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(button_text, url=deep_link)],
-                    [InlineKeyboardButton(text=add_button_text, url=add_link)],
-                ])
-            )
-        except Exception as e:
-            print(e)
-        try:
-            os.remove(f"downloads/welcome_{user_id}.png")
-            os.remove(f"downloads/pp{user_id}.png")
-        except Exception:
-            pass
+                    reply_markup=InlineKeyboardMarkup([
+                        [InlineKeyboardButton(button_text, url=deep_link)],
+                        [InlineKeyboardButton(text=add_button_text, url=add_link)],
+                    ])
+                )
+            except Exception as e:
+                print(e)
+            try:
+                os.remove(f"downloads/welcome_{user_id}.png")
+                os.remove(f"downloads/pp{user_id}.png")
+            except Exception:
+                pass
 
 
+# Enable default welcome message for the chat
 @app.on_message(ft.command("dwelcome on"))
 @can_restrict
 async def enable_welcome(_, message: Message):
@@ -182,9 +182,10 @@ async def enable_welcome(_, message: Message):
         await message.reply_text("Default welcome is already enabled")
         return
     await dwelcome_on(chat_id)
-    await message.reply_text("New default welcome message enabled for this chat.")
+    await message.reply_text("Default welcome message enabled for this chat.")
 
 
+# Disable default welcome message for the chat
 @app.on_message(ft.command("dwelcome off"))
 @can_restrict
 async def disable_welcome(_, message: Message):
@@ -194,7 +195,8 @@ async def disable_welcome(_, message: Message):
         await message.reply_text("Default welcome is already disabled")
         return
     await dwelcome_off(chat_id)
-    await message.reply_text("New default welcome disabled for this chat.")
+    await message.reply_text("Default welcome message disabled for this chat.")
+
 
 
 # <=======================================================================================================>
@@ -1322,7 +1324,7 @@ function(CLEAN_SERVICE_HANDLER)
 function(BUTTON_VERIFY_HANDLER)
 function(WELCOME_MUTE_HELP)
 
-__mod_name__ = "ᴡᴇʟᴄᴏᴍᴇ"
+__mod_name__ = "Wᴇʟᴄᴏᴍᴇ"
 __command_list__ = []
 __handlers__ = [
     NEW_MEM_HANDLER,
