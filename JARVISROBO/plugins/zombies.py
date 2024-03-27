@@ -104,5 +104,5 @@ __help__ = """
 
 » /zombies clean: Removes the deleted accounts from the group.
 """
-__mod_name__ = "ᴢᴏᴍʙɪᴇs"
+__mod_name__ = "Zᴏᴍʙɪᴇs"
 # <==================================================== END ===================================================>
