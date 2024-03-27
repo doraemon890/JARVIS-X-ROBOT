@@ -4,7 +4,7 @@
 import nekos
 from telethon import events
 
-from Database.mongodb.toggle_mongo import is_nekomode_on, nekomode_off, nekomode_on
+from Database.mongodb.toggle_mongo import is_anniemode_on, anniemode_off, anniemode_on
 from JARVISROBO import tbot
 from JARVISROBO.state import state  # Import the state function
 
@@ -51,8 +51,8 @@ allowed_commands = [
 @tbot.on(events.NewMessage(pattern="/wallpaper"))
 async def wallpaper(event):
     chat_id = event.chat_id
-    nekomode_status = await is_nekomode_on(chat_id)
-    if nekomode_status:
+    anniemode_status = await is_anniemode_on(chat_id)
+    if anniemode_status:
         target = "wallpaper"
         img_url = nekos.img(
             target
@@ -60,25 +60,25 @@ async def wallpaper(event):
         await event.reply(file=img_url)
 
 
-@tbot.on(events.NewMessage(pattern="/Annieomode on"))
-async def enable_nekomode(event):
+@tbot.on(events.NewMessage(pattern="/annieomode on"))
+async def enable_anniemode(event):
     chat_id = event.chat_id
-    await nekomode_on(chat_id)
+    await anniemode_on(chat_id)
     await event.reply("Anniemode has been enabled.")
 
 
-@tbot.on(events.NewMessage(pattern="/nekomode off"))
-async def disable_nekomode(event):
+@tbot.on(events.NewMessage(pattern="/anniemode off"))
+async def disable_anniemode(event):
     chat_id = event.chat_id
-    await nekomode_off(chat_id)
+    await anniemode_off(chat_id)
     await event.reply("Anniemode has been disabled.")
 
 
 @tbot.on(events.NewMessage(pattern=r"/(?:{})".format("|".join(allowed_commands))))
-async def nekomode_commands(event):
+async def anniemode_commands(event):
     chat_id = event.chat_id
-    nekomode_status = await is_nekomode_on(chat_id)
-    if nekomode_status:
+    anniemode_status = await is_anniemode_on(chat_id)
+    if anniemode_status:
         target = event.raw_text[1:].lower()  # Remove the slash before the command
         if target in allowed_commands:
             url = f"{url_sfw}{target}"
@@ -94,8 +94,8 @@ async def nekomode_commands(event):
 __help__ = """
 *✨ Sends fun Gifs/Images*
 
-➥ /Anniemode on : Enables fun annie mode.
-➥ /Anniemode off : Disables fun annie mode
+➥ /anniemode on : Enables fun annie mode.
+➥ /anniemode off : Disables fun annie mode
 
 » /bully: sends random bully gifs.
 » /neko: sends random neko gifs.
@@ -124,5 +124,5 @@ __help__ = """
 » /handhold: sends random handhold GIFs.
 """
 
-__mod_name__ = "ᴀɴɴɪᴇ"
+__mod_name__ = "Aɴɴɪᴇ"
 # <================================================ END =======================================================>
