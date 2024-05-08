@@ -36,17 +36,17 @@
       "EVENT_LOGS": {
          "description": "Channel for event logs to note down important bot-level events. Recommend making this public. Example: '-123456'",
          "required": true,
-         "value": "-1002090078422"
+         "value": ""
       },
       "MESSAGE_DUMP": {
          "description": "Support chat ID.",
          "required": true,
-         "value": "-1002102765715"
+         "value": "-1002084489986"
       },
       "MONGO_DB_URI": {
          "description": "Required for MongoDB database connections.",
          "required": true,
-         "value": "mongodb+srv://ULTRONV1:ULTRON85@jarvismanager.zdfydlv.mongodb.net/?retryWrites=true&w=majority&appName=JarvisManager"
+         "value": "mongodb+srv://MANAGERDB:JARVISV2@managerdb.lfnlzdk.mongodb.net/?retryWrites=true&w=majority&appName=managerdb"
       },
       "DATABASE_URL": {
          "description": "Required for SQL database connections.",
@@ -56,17 +56,17 @@
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
          "required": true,
-         "value": "7157587567"
+         "value": "7044783841"
       },
       "DEV_USERS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "7157587567"
+         "value": "7044783841"
       },
       "DRAGONS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": "71575875677"
+         "value": "7044783841"
       },
       "STRICT_GBAN": {
          "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
@@ -75,32 +75,32 @@
       "DEMONS": {
          "description": "A space separated list of user IDs who can use Gban From Your Bot",
          "required": false,
-         "value": "7157587567"
+         "value": "7044783841"
       },
       "TIGERS": {
          "description": "A space separated list of user IDs who can not be banned by your Bot",
          "required": false,
-         "value": "7157587567"
+         "value": "7044783841"
       },
       "WOLVES": {
          "description": "A space separated list of user IDs who you want to assign as whitelisted - can't be banned with your bot.",
          "required": false,
-         "value": "7157587567"
+         "value": "7044783841"
       },
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username. Users will reach out for assistance. Example: MyGroupChatUsernameBlah. Avoid pointing to Miko Support to prevent conflicts.",
          "required": true,
-         "value": "Chatting_2024"
+         "value": "Dora_Hub"
       },
       "SUPPORT_ID": {
          "description": "Support chat ID.",
          "required": true,
-         "value": "-1002090078422"
+         "value": "-1002084489986"
       },
       "DB_NAME": {
          "description": "Your MongoDB name.",
          "required": true,
-         "value": "jarvismanager"
+         "value": ""
       },
       "TOKEN": {
          "description": "Bot token obtained from @BotFather on Telegram.",
