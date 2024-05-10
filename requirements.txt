@@ -56,7 +56,7 @@ pyjokes
 psycopg2-binary==2.9.9
 pynewtonmath==1.0.1
 pymongo[srv]==4.6.2
-pyrate-limiter==3.1.1
+pyrate-limiter==3.6.1
 pytz==2024.1
 python-arq==6.0.7
 pyrogram==2.0.106
