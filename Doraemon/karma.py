@@ -45,7 +45,7 @@ START_BTN = [
     ],
     [
         InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="Jarvis_"),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_X_SUPPORT"),
+        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_V_SUPPORT"),
     ],
    [
         InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
@@ -61,15 +61,15 @@ GROUP_START_BTN = [
         ),
     ],
     [
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_X_SUPPORT"),
+        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/JARVIS_V_SUPPORT"),
         InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
     ],
 ]
 
 ALIVE_BTN = [
     [
-        ib(text="sᴜᴩᴩᴏʀᴛ", url="https://t.me/JARVIS_X_SUPPORT"),
-        ib(text="sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ", url="https://t.me/CHATTING_2024"),
+        ib(text="sᴜᴩᴩᴏʀᴛ", url="https://t.me/JARVIS_V_SUPPORT"),
+        ib(text="sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ", url="https://t.me/Dora_Hub"),
     ],
     [
         ib(
