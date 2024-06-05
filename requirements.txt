@@ -12,7 +12,7 @@ bleach==6.1.0
 # ==== C ====
 cachetools==5.3.3
 countryinfo==0.1.2
-currencyconverter==0.17.21
+currencyconverter==0.17.23
 
 # ==== D ====
 dateparser==1.2.0
